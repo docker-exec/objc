@@ -1,5 +1,6 @@
 FROM        debian:8.0
 MAINTAINER  andystanton
+ENV         LANG C.UTF-8
 ENV         GNUSTEP_MAKE_VERSION 2.6.6
 ENV         GNUSTEP_BASE_VERSION 1.24.7
 RUN         apt-get update -qq
