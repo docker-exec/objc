@@ -24,6 +24,7 @@ RUN         apt-get install -y \
             rm /gnustep-base-${GNUSTEP_BASE_VERSION}.tar.gz && \
             apt-get clean && \
             rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN         sed -i '/tty/!s/mesg n/tty -s \&\& mesg n/' /root/.profile
 ADD         image-common /tmp/dexec/image-common
 VOLUME      /tmp/dexec/build
 ENTRYPOINT  ["bash", "-l", "/tmp/dexec/image-common/dexec-c-family.sh", "gcc ${OBJC_FLAGS} ${BASE_LIBS}"]
